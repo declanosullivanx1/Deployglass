@@ -11,6 +11,19 @@ One pane of glass for every Cloudflare Pages deployment and every Workers deploy
 | Former working title | Deployment Radar |
 | License | MIT (add `LICENSE` at M0) |
 
+```
+deployment-radar/
+├─ public/
+│  ├─ index.html          # semantic Pico markup, CDN tags + SRI, no inline JS/CSS
+│  ├─ theme-init.js       # pre-paint theme (external → CSP needs no nonces)
+│  ├─ app.js              # ES module: fetch → paginate → normalize → Tabulator
+│  ├─ styles.css          # Pico↔Tabulator theme bridge, skeletons, focus, reduced-motion
+│  └─ _headers            # security headers for static assets (full listing §7)
+├─ functions/api/[[path]].js   # catch-all read-only proxy (doc-verified [[path]] routing)
+├─ scripts/smoke.mjs      # Playwright + fetch smoke tests (§9)
+├─ .dev.vars.example      # placeholders only
+└─ .gitignore             # .dev.vars, node_modules
+```
 ---
 
 ## 1. What it does
