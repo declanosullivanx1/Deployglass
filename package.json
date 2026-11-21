@@ -1,0 +1,20 @@
+{
+  "name": "deployglass",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only radar for every Cloudflare Pages and Workers deployment, across monitored accounts.",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public --project-name=deployglass",
+    "deploy:preview": "wrangler pages deploy public --project-name=deployglass --branch=preview",
+    "smoke": "node scripts/smoke.mjs",
+    "vendor": "node scripts/vendor.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.166.0",
+    "playwright": "1.65.1"
+  }
+}

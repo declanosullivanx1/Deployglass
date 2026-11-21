@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deployglass — Cloudflare deployment radar</title>
+  <meta name="description" content="Read-only view of every Cloudflare Pages and Workers deployment across monitored accounts.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%230172ad' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%230172ad'/%3E%3C/svg%3E">
+  <script src="/theme-init.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.min.css"
+        integrity="sha384-L1dWfspMTHU/ApYnFiMz2QID/PlP1xCW9visvBdbEkOLkSSWsP6ZJWhPw6apiXxU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.7.1/dist/css/tabulator.min.css"
+        integrity="sha384-xnEc77Tm0GtDMa5SK6wMci55eU0E+KodAqTli8SS1h1yHo/bRbtEZ+gTgwCEs3d6" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.7.1/dist/js/tabulator.min.js"
+          integrity="sha384-1M1aGyKpzLZTYIWClgDVwtSkPjR2lvQIkbhZvQ3A3VPKhU2H6EjeXeCBEmyXluer" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a class="skip" href="#grid">Skip to deployments table</a>
+  <header class="container">
+    <hgroup>
+      <h1>Deployglass</h1>
+      <p>Every Pages and Workers deployment, across monitored accounts. Read-only.</p>
+    </hgroup>
+    <div class="toolbar" role="toolbar" aria-label="Dashboard controls">
+      <button id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+      <button id="refresh" type="button">Refresh</button>
+      <label class="switch"><input id="auto" type="checkbox" role="switch"> Auto-refresh 60 s</label>
+      <label>Group by
+        <select id="group">
+          <option value="source" selected>Source</option>
+          <option value="project">Project / script</option>
+        </select>
+      </label>
+      <button id="csv" type="button">Export CSV</button>
+      <button id="json" type="button">Export JSON</button>
+      <details id="cols">
+        <summary>Columns</summary>
+        <fieldset>
+          <legend class="sr-only">Visible columns</legend>
+          <label><input type="checkbox" value="source" checked> Source</label>
+          <label><input type="checkbox" value="account_id"> Account</label>
+          <label><input type="checkbox" value="project" checked> Project / script</label>
+          <label><input type="checkbox" value="deployment_id" checked> Deployment</label>
+          <label><input type="checkbox" value="environment" checked> Environment</label>
+          <label><input type="checkbox" value="status" checked> Status</label>
+          <label><input type="checkbox" value="branch" checked> Branch</label>
+          <label><input type="checkbox" value="commit_hash" checked> Commit</label>
+          <label><input type="checkbox" value="commit_message" checked> Message</label>
+          <label><input type="checkbox" value="url" checked> URL</label>
+          <label><input type="checkbox" value="author" checked> Author</label>
+          <label><input type="checkbox" value="created_on" checked> Created</label>
+          <label><input type="checkbox" value="versions"> Versions</label>
+        </fieldset>
+      </details>
+    </div>
+    <p class="statusline">
+      <span id="freshness" role="status" aria-live="polite">Loading…</span>
+      <span id="stale" class="badge" hidden>STALE</span>
+    </p>
+    <div id="banner" class="banner" role="alert" hidden></div>
+  </header>
+  <main class="container">
+    <div id="skeleton" aria-hidden="true">
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+    </div>
+    <div id="grid" aria-busy="true" tabindex="-1"></div>
+    <article id="empty" hidden>
+      <h2>No deployments found</h2>
+      <p>Check token permissions (Cloudflare Pages Read, Workers Scripts Read, Account Settings Read),
+         that <code>ACCOUNT_IDS</code> matches the token's Account Resources, and that the projects
+         actually have deployments.</p>
+    </article>
+    <noscript><article>Deployglass requires JavaScript (evergreen browser).</article></noscript>
+  </main>
+  <footer class="container">
+    <small>Doc ID <code>01a204a8-de2c-7efd-8c2c-474a741826eb</code> · Generated 2026-11-22T19:08:25.516Z ·
+      Platform facts verified 2026-11-22 · MIT</small>
+  </footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
