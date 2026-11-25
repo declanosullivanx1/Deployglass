@@ -1,0 +1,331 @@
+/*
+  UUIDv7: 01a2133a-c9f7-7dd2-b2cc-b45fa804c550
+  Timestamp: 2026-11-25T15:02:29Z
+*/
+
+:root {
+  --table-border-radius: 8px;
+  --table-font-size: 0.9rem;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.container {
+  flex: 1 0 auto;
+  padding-top: 0.75rem;
+  padding-bottom: 2rem;
+}
+
+.header-container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-container {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid var(--pico-muted-border-color);
+  text-align: center;
+}
+
+.lead-header {
+  margin-bottom: 0.75rem;
+}
+
+.description-text {
+  margin-bottom: 0;
+  color: var(--pico-muted-color);
+  font-size: 0.95rem;
+}
+
+.theme-toggle-btn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.status-message {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.table-wrapper {
+  border-radius: var(--table-border-radius);
+  overflow-x: auto;
+  box-shadow: var(--pico-box-shadow);
+  border: 1px solid var(--pico-muted-border-color);
+  outline: none;
+}
+
+.table-wrapper:focus-within {
+  border-color: var(--pico-primary);
+}
+
+.tabulator {
+  background-color: var(--pico-background-color) !important;
+  color: var(--pico-color) !important;
+  font-family: inherit !important;
+  font-size: var(--table-font-size) !important;
+  border: none !important;
+}
+
+.tabulator .tabulator-header {
+  background-color: var(--pico-card-background-color) !important;
+  border-bottom: 2px solid var(--pico-muted-border-color) !important;
+  color: var(--pico-color) !important;
+  font-weight: 600;
+}
+
+.tabulator .tabulator-header .tabulator-col {
+  background-color: var(--pico-card-background-color) !important;
+  border-right: 1px solid var(--pico-muted-border-color) !important;
+}
+
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content {
+  padding: 0.5rem 0.4rem !important;
+}
+
+/* --- FIX FOR OVERLAPPING MAGNIFYING GLASS & FILTER BOXES --- */
+.tabulator .tabulator-header .tabulator-col input,
+.tabulator .tabulator-header .tabulator-col select {
+  background-image: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  padding: 0.35rem 0.5rem !important;
+  padding-inline-start: 0.5rem !important;
+  padding-inline-end: 0.5rem !important;
+  font-size: 14px !important;
+  border: 1px solid var(--pico-muted-border-color) !important;
+  border-radius: var(--pico-border-radius) !important;
+  background-color: var(--pico-background-color) !important;
+  color: var(--pico-color) !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  line-height: normal !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+}
+
+.tabulator .tabulator-header .tabulator-col input::-webkit-search-decoration,
+.tabulator .tabulator-header .tabulator-col input::-webkit-search-cancel-button,
+.tabulator .tabulator-header .tabulator-col input::-webkit-search-results-button,
+.tabulator .tabulator-header .tabulator-col input::-webkit-search-results-decoration {
+  display: none !important;
+  -webkit-appearance: none !important;
+}
+
+.tabulator .tabulator-header .tabulator-col .tabulator-col-sorter .tabulator-arrow {
+  border-bottom-color: var(--pico-muted-color) !important;
+}
+
+[data-theme="dark"] .tabulator .tabulator-header .tabulator-col .tabulator-col-sorter .tabulator-arrow {
+  border-bottom-color: var(--pico-color) !important;
+}
+
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="ascending"] .tabulator-arrow {
+  border-bottom-color: var(--pico-primary) !important;
+}
+
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="descending"] .tabulator-arrow {
+  border-top-color: var(--pico-primary) !important;
+}
+
+.tabulator .tabulator-row {
+  background-color: var(--pico-background-color) !important;
+  color: var(--pico-color) !important;
+  border-bottom: 1px solid var(--pico-muted-border-color) !important;
+  min-height: 44px;
+}
+
+.tabulator .tabulator-row:nth-child(even) {
+  background-color: var(--pico-card-background-color) !important;
+}
+
+.tabulator .tabulator-row:hover {
+  background-color: var(--pico-primary-background) !important;
+}
+
+.tabulator .tabulator-cell {
+  padding: 0.5rem 0.5rem !important;
+  border-right: 1px solid var(--pico-muted-border-color) !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tabulator-cell a.canonical-link,
+.tabulator-responsive-collapse a.canonical-link,
+a.project-title-link {
+  color: var(--pico-primary) !important;
+  text-decoration: underline;
+  word-break: break-all;
+  outline: none;
+}
+
+a.project-title-link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a.project-title-link:hover {
+  text-decoration: underline;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--pico-muted-border-color);
+  background-color: var(--pico-card-background-color);
+  color: var(--pico-color);
+  white-space: nowrap;
+}
+
+.badge-domain {
+  border-color: var(--pico-primary);
+  background-color: transparent;
+  color: var(--pico-color);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.taxonomy-tag {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  background-color: var(--pico-muted-border-color);
+  color: var(--pico-color);
+}
+
+.tabulator-responsive-collapse {
+  padding: 0.75rem !important;
+  background-color: var(--pico-card-background-color) !important;
+  border-bottom: 1px solid var(--pico-muted-border-color) !important;
+}
+
+.tabulator-responsive-collapse dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.tabulator-responsive-collapse dt {
+  font-weight: 600;
+  color: var(--pico-muted-color);
+}
+
+.tabulator-responsive-collapse dd {
+  margin: 0;
+  word-break: break-word;
+}
+
+.tabulator-row .tabulator-responsive-collapse-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  user-select: none;
+}
+
+.tabulator-row .tabulator-responsive-collapse-toggle:focus-visible {
+  outline: 2px solid var(--pico-primary) !important;
+}
+
+.detail-card {
+  padding: 1.5rem;
+  border-radius: var(--table-border-radius);
+  border: 1px solid var(--pico-muted-border-color);
+  background-color: var(--pico-card-background-color);
+  margin-bottom: 1.5rem;
+}
+
+.domain-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--pico-border-radius);
+  background-color: var(--pico-background-color);
+  border: 1px solid var(--pico-muted-border-color);
+  margin-bottom: 1.25rem;
+}
+
+.domain-banner .domain-icon {
+  font-size: 1.8rem;
+}
+
+.facet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.facet-item strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--pico-muted-color);
+  margin-bottom: 0.25rem;
+}
+
+.version-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.version-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.version-item:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --table-font-size: 0.85rem;
+  }
+  main.container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .toggle-text {
+    display: none;
+  }
+  .theme-toggle-btn {
+    padding: 0.4rem 0.6rem;
+  }
+}
